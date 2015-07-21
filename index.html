@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    <style>
+        body     { padding-top:30px; }
+    </style>
+    <!-- JS -->
+    <script src="https://code.angularjs.org/1.4.2/angular.js"></script>
+    <script data-require="angular-animate@1.2.15" data-semver="1.2.15" src="https://code.angularjs.org/1.4.2/angular-animate.js"></script>
+    <script data-require="angular-animate@1.2.15" data-semver="1.2.15" src="https://code.angularjs.org/1.4.2/angular-route.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-app="examApp" ng-controller="mainController">
+    <div class="container">
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <h1>Submit Payment</h1>
+      </div>
+      <!-- =================================================================== -->
+      <!-- FORM ============================================================== -->
+      <!-- =================================================================== -->
+      <!-- pass in the variable if our form is valid or invalid -->
+      <form name="userForm" ng-submit="submitForm(userForm)" novalidate="">
+        
+        <!-- NAME ON CARD-->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && userForm.submitted }">
+          <label>Name On Card</label>
+          <input type="text" name="name" class="form-control" ng-model="user.name" required="" placeholder="name on card"/>
+          <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">name on card is required.</p>
+          <p ng-show="userForm.name.$error.required && userForm.submitted" class="help-block">must fill value</p>
+        </div> 
+        
+        <!-- CARD NUMBER -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.cardnumber.$invalid && userForm.submitted }" >
+          <label>Card Number</label>
+          <input type="text" name="cardnumber" required=""  class="form-control" ng-model="user.cardnumber" ng-minlength="8" ng-maxlength="8" placeholder="8 digit card number"/>
+          <p ng-show="userForm.cardnumber.$error.minlength || userForm.cardnumber.$error.minlength" class="help-block">card number must be 8 digits.</p>
+          <p ng-show="userForm.cardnumber.$error.required && userForm.submitted" class="help-block">must fill value</p>
+        </div>
+        
+        <!-- EXP DATE -->
+        <div class="form-group"   ng-class="{ 'has-error' : userForm.expdate.$invalid && userForm.submitted }">
+          <label>Exp. Date</label>
+          <input type="text" name="expdate"  class="form-control" ng-model="user.expdate"  required="" placeholder="exp. date- yyyy/MM"/>
+          <p ng-show="userForm.expdate.$invalid && !userForm.expdate.$pristine" class="help-block">Enter a valid expdate.</p>
+          <p ng-show="userForm.expdate.$error.required && userForm.submitted" class="help-block">must fill value</p>
+        </div>
+        
+        <!-- CVV -->
+        <div class="form-group" required=""  ng-class="{ 'has-error' : userForm.CVV.$invalid && userForm.submitted }">
+          <label>CVV</label>
+          <input type="text" name="CVV" class="form-control" ng-model="user.CVV"  required="" placeholder="CVV"/>
+          <p ng-show="userForm.CVV.$invalid && !userForm.CVV.$pristine" class="help-block">Enter a valid CVV.</p>
+          <p ng-show="userForm.CVV.$error.required && userForm.submitted" class="help-block">must fill value</p>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+ 
+    </div>
+  </body>
+
+</html>
