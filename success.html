@@ -1,0 +1,33 @@
+    <form>
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+       <div class="alert alert-success"> <h1>Your Details:</h1></div>
+      </div>
+
+        
+        <!-- NAME ON CARD-->
+        <div class="form-group">
+          <label>Name On Card</label>
+          <span class="form-control" >{{user.name}}</span>
+        </div> 
+        
+        <!-- CARD NUMBER -->
+        <div class="form-group" >
+          <label>Card Number</label>
+          <span  class="form-control">{{user.cardnumber}}</span>
+        </div>
+
+        <!-- EXP DATE -->
+        <div class="form-group" >
+            <label>Card Number</label>
+            <span  class="form-control">{{user.expdate}}</span>
+        </div>
+
+        <!-- CCV -->
+        <div class="form-group" >
+            <label>Card Number</label>
+            <span  class="form-control">{{user.CVV}}</span>
+        </div>
+
+        <button class="btn btn-primary" ng-click="goBack()">Something wrong?</button>
+      </form>

@@ -20,7 +20,7 @@ examApp.config(function($routeProvider, $locationProvider) {
 });
 // create angular controller
 examApp.controller('mainController', function($scope, $location) {
-
+    $scope.user = $scope.$parent.user || {};
 	// function to submit the form after all validation has occurred			
 	$scope.submitForm = function(frm) {
     frm.submitted = true;
@@ -35,11 +35,13 @@ examApp.controller('mainController', function($scope, $location) {
 
 })
 .controller('successController', function($scope) {
-      alert('success')
         $scope.user = $scope.$parent.user || {};
 
-}).controller('appController', function($scope) {
-
+})
+.controller('appController', function($scope, $location) {
+   $scope.goBack = function(){
+       $location.path('/')
+   }
 
 
 })
