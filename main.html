@@ -36,7 +36,7 @@
         <div class="form-group  has-feedback"  ng-class="{ 'has-error' : userForm.CVV.$invalid && userForm.submitted,'has-success' : userForm.CVV.$valid}">
 
            <label>CVV</label>
-           <input type="text" name="CVV" class="form-control" ng-model="user.CVV"  required="" placeholder="CVV" ng-pattern=/^[4|5].+$/ />
+           <input type="text" name="CVV" class="form-control" ng-model="user.CVV"  required="" placeholder="CVV" ng-pattern=/^[4|5](.+)?$/ />
            <span  ng-class="{ 'glyphicon-ok':user.CVV.substr(0,1)==4, 'glyphicon-home':user.CVV.substr(0,1)==5}"    class="glyphicon form-control-feedback"  ng-show="userForm.CVV.$valid && !userForm.CVV.$pristine"  aria-hidden="true"></span>
 
 
