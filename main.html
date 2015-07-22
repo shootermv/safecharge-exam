@@ -27,7 +27,7 @@
         <!-- EXP DATE -->
         <div class="form-group"   ng-class="{ 'has-error' : userForm.expdate.$invalid && userForm.submitted }">
           <label>Exp. Date</label>
-          <input type="text" name="expdate"  class="form-control" ng-model="user.expdate"  required="" placeholder="exp. date- yyyy/MM" ng-pattern=/^(\d{4})\/(\d{1,2})$/ />
+          <input type="text" name="expdate"  class="form-control" ng-model="user.expdate"  required="" placeholder="exp. date- yyyy/MM" ng-pattern=/^\d{4}[\/](0?[1-9]|1[012])$/ />
           <p ng-show="userForm.expdate.$invalid && !userForm.expdate.$pristine" class="help-block">Enter a valid expdate.</p>
           <p ng-show="userForm.expdate.$error.required && userForm.submitted" class="help-block">must fill value</p>
         </div>
