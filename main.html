@@ -19,15 +19,15 @@
         <!-- CARD NUMBER -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.cardnumber.$invalid && userForm.submitted }" >
           <label>Card Number</label>
-          <input type="text" name="cardnumber" required=""  class="form-control" ng-model="user.cardnumber" ng-minlength="8" ng-maxlength="8" placeholder="8 digit card number"/>
-          <p ng-show="userForm.cardnumber.$error.minlength || userForm.cardnumber.$error.minlength" class="help-block">card number must be 8 digits.</p>
+          <input type="text" name="cardnumber" required=""  class="form-control" ng-model="user.cardnumber"  placeholder="8 digit card number" ng-pattern="/^\d{8}$/"/>
+          <p ng-show="userForm.cardnumber.$error.pattern" class="help-block">card number must be 8 digits.</p>
           <p ng-show="userForm.cardnumber.$error.required && userForm.submitted" class="help-block">must fill value</p>
         </div>
         
         <!-- EXP DATE -->
         <div class="form-group"   ng-class="{ 'has-error' : userForm.expdate.$invalid && userForm.submitted }">
           <label>Exp. Date</label>
-          <input type="text" name="expdate"  class="form-control" ng-model="user.expdate"  required="" placeholder="exp. date- yyyy/MM"/>
+          <input type="text" name="expdate"  class="form-control" ng-model="user.expdate"  required="" placeholder="exp. date- yyyy/MM" ng-pattern=/^(\d{4})\/(\d{1,2})$/ />
           <p ng-show="userForm.expdate.$invalid && !userForm.expdate.$pristine" class="help-block">Enter a valid expdate.</p>
           <p ng-show="userForm.expdate.$error.required && userForm.submitted" class="help-block">must fill value</p>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group  has-feedback"  ng-class="{ 'has-error' : userForm.CVV.$invalid && userForm.submitted,'has-success' : userForm.CVV.$valid}">
 
            <label>CVV</label>
-           <input type="text" name="CVV" class="form-control" ng-model="user.CVV"  required="" placeholder="CVV" ng-pattern=/^[4|5]?.+$/ />
+           <input type="text" name="CVV" class="form-control" ng-model="user.CVV"  required="" placeholder="CVV" ng-pattern=/^[4|5].+$/ />
            <span  ng-class="{ 'glyphicon-ok':user.CVV.substr(0,1)==4, 'glyphicon-home':user.CVV.substr(0,1)==5}"    class="glyphicon form-control-feedback"  ng-show="userForm.CVV.$valid && !userForm.CVV.$pristine"  aria-hidden="true"></span>
 
 
